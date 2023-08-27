@@ -36,7 +36,7 @@ else{
     pageContent.innerHTML=`
     <h3 class="heading">Ready to plan your movie marathon?</h3>
     <div style="margin-top:20px">
-        <p>IYour watchlist is currently empty. To start curating your personalized movie queue,
+        <p>Your watchlist is currently empty. To start curating your personalized movie queue,
         explore our movies and click on save icon <img src="./assets/images/watch-later-stroke.png" style="display:inline" alt="favorite" width=15 heigth 15>.
         That way, you'll never miss out on the films you're excited to watch.
         Let's begin adding to your watchlist!</p>
