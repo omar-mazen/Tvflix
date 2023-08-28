@@ -112,7 +112,7 @@ fetchData(URL.detail(movieId),function(movie){
         MovieDetail.querySelector(".slider-inner").appendChild(videoCard);
     }
     pageContent.appendChild(MovieDetail);
-
+    updateIcons ();
     fetchData(URL.recommendations(movieId),addSuggestedMovies);
     updateIcons();
 
