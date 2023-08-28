@@ -3,6 +3,10 @@
 import {URL,fetchData} from "./api.js"
 import {createMovieCard} from "./movie-card.js"
 
+const device =deviceType();
+const eventType = device=="mobile" ? "touchstart" : "click";
+
+
 export function search(){
     const searchWrapper = document.querySelector("[search-wrapper]");
     const searchField = document.querySelector("[search-field]");
@@ -41,7 +45,7 @@ export function search(){
     })
     const searchToggler=document.querySelector("[search-close]");
     const searchModal = document.querySelector(".search-modal");
-    searchToggler.addEventListener("click",()=>{
+    searchToggler.addEventListener(eventType,()=>{
         searchModal.classList.remove("active");
     })
 }

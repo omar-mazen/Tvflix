@@ -7,7 +7,7 @@ const watchlist=localStorage.getItem("watchlist");
 const pageContent = document.querySelector("[page-content]")
 
 const device =deviceType();
-const event = device=="mobile" ? "touchstart" : "click";
+const eventType = device=="mobile" ? "touchstart" : "click";
 
 
 if(watchlist){
@@ -25,7 +25,7 @@ if(watchlist){
                 pageContent.querySelector(".grid-list").appendChild(movieCard);
                 updateIcons();
                 let watchlistBtn=document.querySelectorAll(".watchlist");
-                addEventOnElements(watchlistBtn,event,(event)=>{
+                addEventOnElements(watchlistBtn,eventType,(event)=>{
                     event.currentTarget.parentNode.parentNode.parentNode.remove();
                 })
             })

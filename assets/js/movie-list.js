@@ -4,6 +4,10 @@ import{sidebar} from "./sidebar.js"
 import{createMovieCard} from "./movie-card.js"
 import { search } from "./search.js";
 
+
+const device =deviceType();
+const eventType = device=="mobile" ? "touchstart" : "click";
+
 const genreName = window.localStorage.getItem("genreName");
 const urlParam = window.localStorage.getItem("urlParam");
 const pageContent = document.querySelector("[page-content]");
@@ -134,7 +138,7 @@ fetchData(URL.discover(urlParam,currentPage),({results:movieList,total_pages})=>
      * load more button functionality
      */
     updateIcons();
-    document.querySelector("[load-more]").addEventListener("click",function(){
+    document.querySelector("[load-more]").addEventListener(eventType,function(){
         if(currentPage>= totalPages){
             this.style.display="none";
             return;

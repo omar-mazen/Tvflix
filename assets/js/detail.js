@@ -8,7 +8,7 @@ const movieId=window.localStorage.getItem("movieId");
 const pageContent=document.querySelector("[page-content]");
 
 const device =deviceType();
-const event = device=="mobile" ? "ontouchstart" : "onclick";
+const eventType = device=="mobile" ? "touchstart" : "click";
 
 sidebar();
 
@@ -59,11 +59,11 @@ fetchData(URL.detail(movieId),function(movie){
     MovieDetail.innerHTML=`
             <div class="backdrop-image" style="background-image: url('${imageBaseURL}${"w1280"||"original"}${backdrop_path||poster_path}');"></div>        
             
-                <figure class="poster-box movie-poster movie-card">
+                <figure class="poster-box movie-poster movie-card "movie-id=${id}>
                         <div class="icons">
-                            <span><span class="favorites" ${event}=favorites(this,${id}) ></span></span>
+                            <span><span class="favorites" on${eventType}=favorites(this,${id}) ></span></span>
                             <span>
-                            <span class="watchlist" ${event}=watchList(this,${id})></span>
+                            <span class="watchlist" on${eventType}=watchList(this,${id})></span>
                             </span>
                         </div>  
                     <img src="${imageBaseURL}w342${poster_path}" alt="${title}" class="img-cover">
@@ -107,14 +107,14 @@ fetchData(URL.detail(movieId),function(movie){
         const videoCard = document.createElement("div");
         videoCard.classList.add("video-card");
         videoCard.innerHTML=`
-            <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
+        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
         `;
         MovieDetail.querySelector(".slider-inner").appendChild(videoCard);
+        updateIcons();
     }
     pageContent.appendChild(MovieDetail);
-    updateIcons ();
-    fetchData(URL.recommendations(movieId),addSuggestedMovies);
     updateIcons();
+    fetchData(URL.recommendations(movieId),addSuggestedMovies);
 
 });
 const addSuggestedMovies = ({results:movieList})=>{
@@ -136,5 +136,7 @@ const addSuggestedMovies = ({results:movieList})=>{
             movieListElem.querySelector(".slider-inner").appendChild(movieCard);
     }
     pageContent.appendChild(movieListElem);
+    updateIcons();
 }
 search();
+

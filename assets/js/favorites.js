@@ -7,7 +7,7 @@ const favorites=localStorage.getItem("favorites");
 const pageContent = document.querySelector("[page-content]")
 
 const device =deviceType();
-const event = device=="mobile" ? "touchstart" : "click";
+const eventType = device=="mobile" ? "touchstart" : "click";
 
 
 if(favorites){
@@ -25,7 +25,7 @@ if(favorites){
                 pageContent.querySelector(".grid-list").appendChild(movieCard);
                 updateIcons();
                 let favoriteBtn=document.querySelectorAll(".favorites");
-                addEventOnElements(favoriteBtn,event,(event)=>{
+                addEventOnElements(favoriteBtn,eventType,(event)=>{
                     event.currentTarget.parentNode.parentNode.parentNode.remove();
                 })
             })

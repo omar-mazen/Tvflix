@@ -3,7 +3,12 @@ import { URL, fetchData ,imageBaseURL} from "./api.js";
 import { sidebar } from "./sidebar.js";
 import { createMovieCard } from "./movie-card.js";
 import { search } from "./search.js";
+
 const pageContent = document.querySelector("[page-content]");
+
+const device =deviceType();
+const eventType = device=="mobile" ? "touchstart" : "click";
+
 
 const homePageSections =[
     {
@@ -120,7 +125,7 @@ const addHeroSlide = ()=>{
         lastSliderItem= sliderItems[Number(this.getAttribute("slider-control"))];
         lastSliderControl=this;
     }
-    addEventOnElements(sliderControls,"click",sliderStart);
+    addEventOnElements(sliderControls,eventType,sliderStart);
 }
 const createMovieList = ({results:movieList},title)=>{
     const movieListElem = document.createElement("section");

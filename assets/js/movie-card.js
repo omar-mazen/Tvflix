@@ -2,7 +2,7 @@
 import { imageBaseURL } from "./api.js";
 
 const device =deviceType();
-const event = device=="mobile" ? "ontouchstart" : "onclick";
+const eventType = device=="mobile" ? "ontouchstart" : "onclick";
 
 export function createMovieCard(movie){
     const{
@@ -20,12 +20,12 @@ export function createMovieCard(movie){
     card.setAttribute("movie-id",`${id}`);
     card.innerHTML=`
     <div class="icons">
-        <span><span class="favorites" ${event}=favorites(this,${id}) ></span></span>
+        <span><span class="favorites" on${eventType}=favorites(this,${id}) ></span></span>
         <span>
-        <span class="watchlist" ${event}=watchList(this,${id})></span>
+        <span class="watchlist" on${eventType}=watchList(this,${id})></span>
         </span>
     </div>
-    <a href="./detail.html" class="card-btn" title="${title}" onclick="getMovieDetail(${id})">
+    <a href="./detail.html" class="card-btn" title="${title}" on${eventType}="getMovieDetail(${id})">
         <figure class="poster-box card-banner">
             <img src="${imageBaseURL}w342${poster_path}" alt="${title}" class="img-cover" loading="lazy">
         </figure>

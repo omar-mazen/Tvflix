@@ -2,6 +2,10 @@
 
 import {fetchData,URL} from "./api.js";
 
+const device =deviceType();
+const eventType = device=="mobile" ? "touchstart" : "click";
+
+
 export function sidebar(){
     /**
      * fetch all genres eg:[{"id":"123","name":"action"}]
@@ -26,12 +30,12 @@ export function sidebar(){
         </div>
         <div class="sidebar-list">
                 <p class="title">Language</p>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=ar","with_original_language=ar")>Arabic</a>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=en",""with_original_language=en")>English</a>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=fr","with_original_language=fr")>French</a>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=es","with_original_language=es")>Spanish</a>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=de","with_original_language=de")>German</a>
-                <a href="./movie-list.html" menu-close class="sidebar-link" onclick=getMovieList("with_original_language=hi","with_original_language=hi")>Hindi</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=ar","with_original_language=ar")>Arabic</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=en",""with_original_language=en")>English</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=fr","with_original_language=fr")>French</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=es","with_original_language=es")>Spanish</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=de","with_original_language=de")>German</a>
+                <a href="./movie-list.html" menu-close class="sidebar-link" on${eventType}=getMovieList("with_original_language=hi","with_original_language=hi")>Hindi</a>
         </div>
     `;
     const genreLink =()=>{
@@ -40,7 +44,7 @@ export function sidebar(){
             link.classList.add("sidebar-link");
             link.setAttribute("href","./movie-list.html");
             link.setAttribute("menu-close","");
-            link.setAttribute("onclick",`getMovieList("with_genres=${genreId}","${genreName}")`);
+            link.setAttribute(`on${eventType}`,`getMovieList("with_genres=${genreId}","${genreName}")`);
             link.textContent=genreName;
             sidebarInner.querySelectorAll(".sidebar-list")[1].appendChild(link);
         }
@@ -54,12 +58,12 @@ export function sidebar(){
         const sidebarTogglers = document.querySelectorAll("[menu-toggler]");
         const sidebarClose = document.querySelectorAll("[menu-close]");
         const overlay=document.querySelector("[overlay]");
-        addEventOnElements(sidebarTogglers,"click",()=>{
+        addEventOnElements(sidebarTogglers,eventType,()=>{
             sidebar.classList.toggle("active");
             sidebarBtn.classList.toggle("active");
             overlay.classList.toggle("active");
         });
-        addEventOnElements(sidebarClose,"click",()=>{
+        addEventOnElements(sidebarClose,eventType,()=>{
             sidebar.classList.remove("active");
             sidebarBtn.classList.remove("active");
             overlay.classList.remove("active");

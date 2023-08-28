@@ -11,10 +11,13 @@ function deviceType(){
         return "desktop";
 }
 
+const device =deviceType();
+const eventType = device=="mobile" ? "touchstart" : "click";
+
 const searchBox=document.querySelector("[search-box]");
 const searchToggler=document.querySelectorAll("[search-toggler]");
 
-addEventOnElements(searchToggler,"click",()=>{
+addEventOnElements(searchToggler,eventType,()=>{
     searchBox.classList.toggle("active");
 });
 
@@ -23,7 +26,7 @@ addEventOnElements(searchToggler,"click",()=>{
 const openSearch = document.querySelector(".open-search");
 const searchField = document.querySelector("[search-field]");
 
-openSearch.addEventListener("click",()=>{
+openSearch.addEventListener(eventType,()=>{
     searchField.focus();
 })
 
