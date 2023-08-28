@@ -31,7 +31,7 @@ openSearch.addEventListener("click",()=>{
 
 // when user clikc on movie card add movie id to local storage 
 
-const getMovieDetail=function(){
+const getMovieDetail=function(movieId){
     window.localStorage.setItem("movieId",String(movieId));
 }
 
