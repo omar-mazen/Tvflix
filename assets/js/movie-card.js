@@ -2,7 +2,7 @@
 import { imageBaseURL } from "./api.js";
 
 const device =deviceType();
-const eventType = device=="mobile" ? "ontouchstart" : "onclick";
+const eventType = device=="mobile" ? "touchstart" : "click";
 
 export function createMovieCard(movie){
     const{
