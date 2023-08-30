@@ -148,5 +148,5 @@ Tvflix empowers users to explore, discover, and manage movies. Its intuitive int
 ## Contributing
 We welcome contributions to enhance the project! If you find any issues or have ideas for improvements, please don't hesitate to report them through GitHub issues. You can also suggest enhancements or submit pull requests to help make this project even better.
 
-## 9. License
+## License
 This project is distributed under the GNU General Public License (GPL). You can find the full text of the license in the [LICENSE](https://github.com/omar-mazen/Tvflix/blob/main/LICENSE) file.
