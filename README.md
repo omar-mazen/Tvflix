@@ -1,5 +1,5 @@
 # Tvflix web app Documentation
-Tvflix web app An interactive web application for discovering and exploring a wide range of movies. Browse top-rated, trending, and upcoming films, dive into detailed movie information, and curate your own watchlist and favorites. Enjoy a seamless movie exploration experience with real-time search, responsive design, and user-friendly features. Contribute to this open-source project on GitHub and elevate your movie-watching journey
+Tvflix web app An interactive web application for discovering and exploring a wide range of movies. Browse top-rated, trending, and upcoming films, dive into detailed movie information, and curate your own watchlist and favorites. Enjoy a seamless movie exploration experience with real-time search, responsive design, and user-friendly features.
 
 ![Home page](./screenshots/pin.png)
 [Tvflix](https://omar-mazen.github.io/Tvflix/)
